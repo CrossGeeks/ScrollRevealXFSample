@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="ScrollRevealXFSample.Views.Cells.NewsCell"
+          Height="120">
+        <Grid BackgroundColor="White"
+              ColumnDefinitions="Auto, *"
+              RowDefinitions="*, *"
+              Padding="10">
+
+               <Image Source="{Binding Photo}"
+                      Aspect="AspectFill"
+                      VerticalOptions="FillAndExpand"
+                      WidthRequest="100"
+                      Grid.Column="0"
+                      Grid.Row="0"
+                      Grid.RowSpan="2"/>
+
+                <Label Text="{Binding Title}"
+                       FontSize="Body"
+                       Grid.Column="1"
+                       Grid.Row="0"/>
+
+               <Label Text="{Binding Date, Converter={StaticResource RelativeDateTimeConvertor}}"
+                       FontSize="Small"
+                       TextColor="Gray"
+                       Grid.Column="1"
+                       Grid.Row="1"/>
+        </Grid>
+</ViewCell>

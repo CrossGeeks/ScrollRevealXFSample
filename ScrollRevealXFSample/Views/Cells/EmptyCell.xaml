@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="ScrollRevealXFSample.Views.Cells.EmptyCell">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Label Text="Scroll to continue with content"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="Black"
+               Padding="10"
+               TextColor="White"/>
+    </StackLayout>
+</ViewCell>

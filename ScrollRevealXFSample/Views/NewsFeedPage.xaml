@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ScrollRevealXFSample.Views.NewsFeedPage"
+    xmlns:controls="clr-namespace:ScrollRevealXFSample.Controls"
+    xmlns:local="clr-namespace:ScrollRevealXFSample.Views.Cells"
+    Title="Feed News">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:NewsDataTemplateSelector x:Key="NewsDataTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+        <Grid>
+            <StackLayout BackgroundColor="Black"
+                         Spacing="10">
+                <Image Source="https://blog.symquest.com/hubfs/Business-Video-Conference-1184331589_2125x1416.jpeg"
+                       Aspect="AspectFill"
+                       HeightRequest="400"
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Text="Microsoft"
+                       FontSize="Medium"
+                       TextColor="White"/>
+                <Label Text="Personal Shopping Appointment"
+                       FontSize="Title"
+                       TextColor="White"
+                       FontAttributes="Bold"/>
+                 <Label Text="Make meetings more personal and encourage teamwork when you virtually meet face-to-face. Meet in any situation, whether you’re calling one-on-one, delivering a sales pitch, hosting a team training, or running a company-wide town hall."
+                       FontSize="Medium"
+                       TextColor="White"/>
+                <Button Text="LEARN MORE"
+                        TextColor="White"
+                        HorizontalOptions="Start"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        CornerRadius="0"
+                        Padding="10"
+                        FontSize="Medium"/>
+            </StackLayout>
+
+            <controls:ExtendedListView ItemsSource="{Binding NewsFeed}"
+                                       LoadMoreCommand="{Binding LoadMoreCommand}"
+                                       VerticalOptions="FillAndExpand"
+                                       HasUnevenRows="True"
+                                       BackgroundColor="Transparent"
+                                       VerticalScrollBarVisibility="Never"
+                                       SeparatorVisibility="None"
+                                       ItemTemplate="{StaticResource NewsDataTemplateSelector}"/>
+        </Grid>
+</ContentPage>
