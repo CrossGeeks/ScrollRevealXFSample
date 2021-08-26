@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace ScrollRevealXFSample.Controls
 {
-    public class ExtendedListView : ListView
+    public class ExtendedListView : ListView, IDisposable
     {
         public static readonly BindableProperty LoadMoreCommandProperty =
                     BindableProperty.Create(nameof(LoadMoreCommand), typeof(ICommand), typeof(ExtendedListView), default(ICommand));
@@ -33,6 +34,11 @@ namespace ScrollRevealXFSample.Controls
                     LoadMoreCommand?.Execute(null);
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            ItemAppearing -= OnItemAppearing;
         }
     }
 }
